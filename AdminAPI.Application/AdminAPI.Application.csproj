@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Commands\" />
+    <None Remove="Queries\" />
+    <None Remove="Commands\CreateProfile\" />
+    <None Remove="Queries\GetProfile\" />
+    <None Remove="MediatR" />
+    <None Remove="MediatR.Extensions.Microsoft.DependencyInjection" />
+    <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
+    <None Remove="mappings\" />
+    <None Remove="Commands\Post\" />
+    <None Remove="Commands\CompanyDrive\" />
+    <None Remove="Queries\CompanyDrive\" />
+    <None Remove="Queries\Post\" />
+    <None Remove="Commands\TimeLine\" />
+    <None Remove="Queries\TimeLine\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Commands\" />
+    <Folder Include="Queries\" />
+    <Folder Include="Commands\Profile\" />
+    <Folder Include="Queries\Profile\" />
+    <Folder Include="mappings\" />
+    <Folder Include="Commands\Post\" />
+    <Folder Include="Commands\CompanyDrive\" />
+    <Folder Include="Queries\CompanyDrive\" />
+    <Folder Include="Queries\Post\" />
+    <Folder Include="Commands\TimeLine\" />
+    <Folder Include="Queries\TimeLine\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AdminAPI.Infrastructure\AdminAPI.Infrastructure.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+  </ItemGroup>
+</Project>

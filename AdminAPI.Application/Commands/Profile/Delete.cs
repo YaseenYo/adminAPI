@@ -1,29 +1,28 @@
 ﻿using System;
-using AdminAPI.Domain.Entities;
 using AdminAPI.Infrastructure.Services;
 using MediatR;
 
-namespace AdminAPI.Application.Queries.GetTimeLine
+namespace AdminAPI.Application.Queries.GetProfile
 {
-	public class Create
+	public class Delete
 	{
         public class Command : IRequest
         {
-            public TimeLine? TimeLine { get; set; } 
+            public string Id { get; set; } = string.Empty;
         }
+
         public class Handler : IRequestHandler<Command>
         {
-            private readonly ITimeLineRepository _repository;
+            private readonly IProfileRepository _repository;
 
-            public Handler(ITimeLineRepository repository)
+            public Handler(IProfileRepository repository)
             {
                 _repository = repository;
             }
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                await _repository.AddAsync(request.TimeLine);
-
+                await _repository.DeleteProfile(request.Id);
                 return Unit.Value;
             }
         }

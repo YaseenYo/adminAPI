@@ -3,27 +3,27 @@ using AdminAPI.Domain.Entities;
 using AdminAPI.Infrastructure.Services;
 using MediatR;
 
-namespace AdminAPI.Application.Queries.GetProfile
+namespace AdminAPI.Application.Queries.GetPost
 {
 	public class Update
 	{
         public class Command : IRequest
         {
-            public Profile? Profile { get; set; }
+            public Post? Post { get; set; }
         }
 
         public class Handler : IRequestHandler<Command>
         {
-            private readonly IProfileRepository _repository;
+            private readonly IPostRepository _repository;
 
-            public Handler(IProfileRepository repository)
+            public Handler(IPostRepository repository)
             {
                 _repository = repository;
             }
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                await _repository.UpdateProfileAsync(request.Profile.Id, request.Profile);
+                await _repository.UpdatePostAsync(request.Post.Id, request.Post);
 
                 return Unit.Value;
             }

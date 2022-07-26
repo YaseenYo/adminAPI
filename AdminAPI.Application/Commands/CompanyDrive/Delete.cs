@@ -2,7 +2,7 @@
 using AdminAPI.Infrastructure.Services;
 using MediatR;
 
-namespace AdminAPI.Application.Queries.GetProfile
+namespace AdminAPI.Application.Queries.GetCompanyDrive
 {
 	public class Delete
 	{
@@ -13,16 +13,16 @@ namespace AdminAPI.Application.Queries.GetProfile
 
         public class Handler : IRequestHandler<Command>
         {
-            private readonly IProfileRepository _repository;
+            private readonly ICompanyDriveRepository _repository;
 
-            public Handler(IProfileRepository repository)
+            public Handler(ICompanyDriveRepository repository)
             {
                 _repository = repository;
             }
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                await _repository.DeleteProfile(request.Id);
+                await _repository.DeleteCompanyDrive(request.Id);
                 return Unit.Value;
             }
         }

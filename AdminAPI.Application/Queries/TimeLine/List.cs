@@ -3,22 +3,22 @@ using AdminAPI.Domain.Entities;
 using AdminAPI.Infrastructure.Services;
 using MediatR;
 
-namespace AdminAPI.Application.Queries.GetProfile
+namespace AdminAPI.Application.Queries.GetTimeLine
 {
     public class List
     {
-        public class Query : IRequest<IEnumerable<Profile>> { }
+        public class Query : IRequest<IEnumerable<TimeLine>> { }
 
-        public class Handler : IRequestHandler<Query, IEnumerable<Profile>>
+        public class Handler : IRequestHandler<Query, IEnumerable<TimeLine>>
         {
-            private readonly IProfileRepository _repository;
+            private readonly ITimeLineRepository _repository;
 
-            public Handler(IProfileRepository repository)
+            public Handler(ITimeLineRepository repository)
             {
                 _repository = repository;
             }
 
-            public async Task<IEnumerable<Profile>> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<IEnumerable<TimeLine>> Handle(Query request, CancellationToken cancellationToken)
             {
                 return await _repository.GetAll();
             }

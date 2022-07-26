@@ -3,22 +3,22 @@ using AdminAPI.Domain.Entities;
 using AdminAPI.Infrastructure.Services;
 using MediatR;
 
-namespace AdminAPI.Application.Queries.GetProfile
+namespace AdminAPI.Application.Queries.GetCompanyDrive
 {
     public class List
     {
-        public class Query : IRequest<IEnumerable<Profile>> { }
+        public class Query : IRequest<IEnumerable<CompanyDrive>> { }
 
-        public class Handler : IRequestHandler<Query, IEnumerable<Profile>>
+        public class Handler : IRequestHandler<Query, IEnumerable<CompanyDrive>>
         {
-            private readonly IProfileRepository _repository;
+            private readonly ICompanyDriveRepository _repository;
 
-            public Handler(IProfileRepository repository)
+            public Handler(ICompanyDriveRepository repository)
             {
                 _repository = repository;
             }
 
-            public async Task<IEnumerable<Profile>> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<IEnumerable<CompanyDrive>> Handle(Query request, CancellationToken cancellationToken)
             {
                 return await _repository.GetAll();
             }

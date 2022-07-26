@@ -3,22 +3,22 @@ using AdminAPI.Domain.Entities;
 using AdminAPI.Infrastructure.Services;
 using MediatR;
 
-namespace AdminAPI.Application.Queries.GetProfile
+namespace AdminAPI.Application.Queries.GetPost
 {
     public class List
     {
-        public class Query : IRequest<IEnumerable<Profile>> { }
+        public class Query : IRequest<IEnumerable<Post>> { }
 
-        public class Handler : IRequestHandler<Query, IEnumerable<Profile>>
+        public class Handler : IRequestHandler<Query, IEnumerable<Post>>
         {
-            private readonly IProfileRepository _repository;
+            private readonly IPostRepository _repository;
 
-            public Handler(IProfileRepository repository)
+            public Handler(IPostRepository repository)
             {
                 _repository = repository;
             }
 
-            public async Task<IEnumerable<Profile>> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<IEnumerable<Post>> Handle(Query request, CancellationToken cancellationToken)
             {
                 return await _repository.GetAll();
             }
